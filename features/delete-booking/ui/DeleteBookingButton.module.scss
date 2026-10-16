@@ -1,0 +1,6 @@
+// Titles can be a single 100-character word; keep the popover inside a phone screen.
+.description {
+  display: block;
+  max-width: min(280px, calc(100vw - 64px));
+  overflow-wrap: anywhere;
+}

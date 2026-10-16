@@ -1,0 +1,145 @@
+@use "shared/styles/breakpoints" as bp;
+
+.navigator {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: -0.01em;
+
+  @include bp.tablet-up {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+.todayBadge {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--ant-color-primary-bg);
+  color: var(--ant-color-primary);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.picker {
+  width: 136px;
+}
+
+.week {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include bp.tablet-up {
+    gap: 8px;
+  }
+}
+
+.day {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 52px;
+  padding: 6px 0;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: var(--ant-color-bg-container);
+  color: var(--ant-color-text);
+  font: inherit;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+
+  &:hover {
+    border-color: var(--ant-color-primary-border);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--ant-color-primary);
+    outline-offset: 2px;
+  }
+}
+
+.weekday {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--ant-color-text-tertiary);
+  text-transform: capitalize;
+}
+
+.dayNumber {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.past {
+  .dayNumber {
+    color: var(--ant-color-text-tertiary);
+  }
+}
+
+// A dot under today's number, visible whether or not today is selected.
+.today::after {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--ant-color-primary);
+}
+
+.selected {
+  border-color: var(--ant-color-primary);
+  background: var(--ant-color-primary);
+
+  .weekday,
+  .dayNumber {
+    color: var(--ant-color-white);
+  }
+
+  &.today::after {
+    background: var(--ant-color-white);
+  }
+
+  &:hover {
+    border-color: var(--ant-color-primary);
+  }
+}

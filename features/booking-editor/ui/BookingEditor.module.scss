@@ -1,0 +1,151 @@
+.editor {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.heading {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 26px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.date {
+  margin: 2px 0 0;
+  color: var(--ant-color-text-secondary);
+}
+
+.alert {
+  margin-bottom: 16px;
+}
+
+.timeFieldset {
+  margin: 0 0 20px;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.timeRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.timeItem {
+  margin-bottom: 0;
+}
+
+.picker {
+  width: 100%;
+}
+
+.error,
+.endChange {
+  margin: 6px 0 0;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.error {
+  color: var(--ant-color-error);
+}
+
+// Neutral note when the end only moved along with the start.
+.endChange {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  padding: 8px 10px;
+  border: 1px solid var(--ant-color-border-secondary);
+  border-radius: 6px;
+  background: var(--ant-color-fill-quaternary);
+  color: var(--ant-color-text);
+
+  :global(.anticon) {
+    color: var(--ant-color-text-tertiary);
+  }
+
+  s {
+    color: var(--ant-color-text-tertiary);
+  }
+}
+
+// The duration got shorter: something the user might not want, so it stands out.
+.endChangeWarning {
+  border-color: var(--ant-color-warning-border);
+  background: var(--ant-color-warning-bg);
+
+  :global(.anticon) {
+    color: var(--ant-color-warning);
+  }
+}
+
+.presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.preset {
+  min-width: 64px;
+  border-radius: 999px;
+}
+
+.presetActive {
+  box-shadow: none;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--ant-color-border-secondary);
+}
+
+.summary {
+  margin: 0;
+  color: var(--ant-color-text-secondary);
+
+  strong {
+    color: var(--ant-color-text);
+    font-weight: 600;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

@@ -1,0 +1,108 @@
+.item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 8px;
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background: var(--ant-color-fill-quaternary);
+  }
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 12px;
+  min-height: 52px;
+  padding: 8px 4px 8px 10px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--ant-color-primary);
+    outline-offset: -2px;
+  }
+}
+
+.marker {
+  width: 3px;
+  align-self: stretch;
+  border-radius: 2px;
+  background: var(--ant-color-primary);
+}
+
+.when {
+  display: flex;
+  flex-direction: column;
+  min-width: 84px;
+}
+
+.time {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.duration {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--ant-color-text-tertiary);
+}
+
+.title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 14px;
+}
+
+.tag {
+  margin: 0;
+}
+
+.actions {
+  flex-shrink: 0;
+  padding-inline-end: 4px;
+}
+
+.ongoing .marker {
+  background: var(--ant-color-success);
+}
+
+.past {
+  .marker {
+    background: var(--ant-color-text-quaternary);
+  }
+
+  .time,
+  .title {
+    color: var(--ant-color-text-secondary);
+  }
+}
+
+.selected {
+  background: var(--ant-color-primary-bg);
+
+  &:hover {
+    background: var(--ant-color-primary-bg);
+  }
+}
+
+.highlighted {
+  animation: flash 0.9s ease-in-out 3;
+}
+
+@keyframes flash {
+  50% {
+    background: var(--ant-color-warning-bg);
+  }
+}

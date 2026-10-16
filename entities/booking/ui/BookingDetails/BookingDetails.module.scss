@@ -1,0 +1,27 @@
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 10px 16px;
+  margin: 0;
+
+  dt {
+    color: var(--ant-color-text-secondary);
+  }
+
+  dd {
+    margin: 0;
+    font-weight: 500;
+    overflow-wrap: anywhere;
+  }
+}
+
+.muted {
+  color: var(--ant-color-text-tertiary);
+  font-weight: 400;
+}

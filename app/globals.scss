@@ -1,0 +1,40 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--ant-color-bg-layout);
+  color: var(--ant-color-text);
+  font-family: var(--ant-font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "tnum" 1; // tabular digits keep times aligned in lists
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+// antd's toast container spans the whole top edge and would swallow clicks on the header
+// (e.g. the demo switch) while a toast is visible. Only the toasts themselves stay interactive.
+// (`body` prefix: antd's own `.ant-message .ant-message-list-content` rule is more specific otherwise.)
+body .ant-message .ant-message-list-content {
+  pointer-events: none;
+}
+
+body .ant-message .ant-message-notice-wrapper {
+  pointer-events: auto;
+}

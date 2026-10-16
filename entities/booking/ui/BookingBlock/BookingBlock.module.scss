@@ -1,0 +1,101 @@
+.block {
+  position: absolute;
+  inset-inline: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-height: 0;
+  padding: 6px 10px 6px 12px;
+  overflow: hidden;
+  border: 1px solid var(--ant-color-primary-border);
+  border-inline-start: 3px solid var(--ant-color-primary);
+  border-radius: 6px;
+  background: var(--ant-color-primary-bg);
+  color: var(--ant-color-text);
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+  transition:
+    box-shadow 0.15s ease,
+    background-color 0.15s ease;
+  z-index: 2;
+
+  &:hover {
+    background: var(--ant-color-primary-bg-hover);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--ant-color-primary);
+    outline-offset: 2px;
+  }
+}
+
+.title,
+.time {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  line-height: 18px;
+}
+
+.title {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.time {
+  font-size: 12px;
+  color: var(--ant-color-text-secondary);
+}
+
+// Short bookings: one line, time first so the exact minutes are never cut off.
+.compact {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  padding-block: 0;
+
+  .time {
+    flex-shrink: 0;
+  }
+}
+
+.ongoing {
+  border-color: var(--ant-color-success-border);
+  border-inline-start-color: var(--ant-color-success);
+  background: var(--ant-color-success-bg);
+
+  &:hover {
+    background: var(--ant-color-success-bg-hover);
+  }
+}
+
+.past {
+  border-color: var(--ant-color-border-secondary);
+  border-inline-start-color: var(--ant-color-text-quaternary);
+  background: var(--ant-color-fill-tertiary);
+  color: var(--ant-color-text-secondary);
+
+  &:hover {
+    background: var(--ant-color-fill-secondary);
+  }
+}
+
+.selected {
+  box-shadow:
+    0 0 0 2px var(--ant-color-bg-container),
+    0 0 0 4px var(--ant-color-primary);
+  z-index: 3;
+}
+
+.highlighted {
+  animation: pulse 0.9s ease-in-out 3;
+  z-index: 3;
+}
+
+@keyframes pulse {
+  50% {
+    box-shadow: 0 0 0 6px var(--ant-color-warning-border);
+  }
+}
